@@ -1,31 +1,68 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <!-- These meta tags come first. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Vince Learning - {% block title %}Page{% endblock %}</title>
+<head>
+    <!-- These meta tags come first. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Include the CSS -->
-	    <!-- CSS -->
-	<style type="text/css">body { background-color: beige; }</style>
-    </head>
-    <body>
-      <div class="container"></div>
-        <!-- body -->
-        <div id="sidebar">
-            <ul id="menu">
-                <li>Home</li>
-                <li>Cours</li>
-                <li>Projets</li>
-            </ul>
+    <title>Vince Learning - {% block title %}Page{% endblock %}</title>
+
+    <!-- Include the CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div id="header" class="row">
+            <a class="col" href="{% url 'home' %}">
+                <h4>Vince-Learning</h4>
+            </a>
         </div>
-        <div id="content">{% block content %}{% endblock %}</div>
-        <div id="footer">&copy; 2019 - ESILV - Vince-Learning</div>
-    </body>
-    {% block scripts %}{% endblock %}
-    {% block extra_scripts %}{% endblock %}
-    {% block extra_js %}{% endblock %}
+        <!-- body -->
+        <div class="row match-cols">
+            <div class="col-2" id="sidebar">
+                <ul id="menu">
+                    <li class="fas fa-chart-line"><a href="{% url 'home' %}"><span>Home</span></a></li>
+                    <li class="fas fa-chart-line"><a href="{% url 'cours' %}"><span>Cours</span></a></li>
+                    <li class="fas fa-chart-line"><a href="{% url 'projets' %}"><span>Projets</span></a></li>
+                </ul>
+            </div>
+            <div class="row col-10" id="content">{% block content %}{% endblock %}</div>
+            <div class="row col" id="footer">&copy; 2019 - ESILV - Vince-Learning</div>
+        </div>
+    </div>
+</body>
+{% block scripts %}{% endblock %}
+{% block extra_scripts %}{% endblock %}
+{% block extra_js %}{% endblock %}
+<style type="text/css">
+    .row {
+        padding: 0px 15px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #footer {
+        text-align: center;
+        border-top: 1px solid;
+    }
+
+    #header {
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid;
+    }
+
+    body {
+        background-color: beige;
+    }
+</style>
+
 </html>

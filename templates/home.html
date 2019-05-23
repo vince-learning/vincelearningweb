@@ -3,12 +3,11 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<p>je teste mon site</p>
+<h id="titre" class="col">Voilà ce que ca donne</h>
 {% endblock content %}
 
-
+{% block extra_scripts %}
 <style>
-    .p {
-        color: green;
-    }
+    #titre { text-align: center; }
 </style>
+{% endblock %}

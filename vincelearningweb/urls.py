@@ -21,5 +21,7 @@ from vlweb import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('', views.HomeView.as_view(), name='home')
+    url('', views.HomeView.as_view(), name='home'),
+    url('cours', views.CoursView.as_view(), name='cours'),
+    url('projets', views.ProjetsView.as_view(), name='projets')
 ]
