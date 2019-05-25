@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from django.views.generic import TemplateView
+from utils import ActiveTabMixin
 
 from vlweb import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('', views.HomeView.as_view(), name='home'),
-    url('cours', views.CoursView.as_view(), name='cours'),
-    url('projets', views.ProjetsView.as_view(), name='projets')
+    path('', views.HomeView.as_view(), name='home'),
+    path('cours', views.CoursView.as_view(), name='cours'),
+    path('projets', views.ProjetsView.as_view(), name='projets')
 ]
