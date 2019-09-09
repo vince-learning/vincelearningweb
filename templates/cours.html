@@ -5,5 +5,11 @@
 {% block header %}Cours{% endblock %}
 
 {% block content %}
-<p class="text-align: right">voici un apercu des cours</p>
+<ul id="listmenu">
+    <li><a href="{% url 'cours1' %}"><span>Cours n°1 : les bases de Datascience</span></a></li>
+    <li><a href="{% url 'cours2' %}"><span>Cours n°2</span></a></li>
+    <li><a href="{% url 'cours3' %}"><span>Cours n°3</span></a></li>
+    <li><a href="{% url 'cours4' %}"><span>Cours n°4</span></a></li>
+    <li><a href="{% url 'cours5' %}"><span>Cours n°5</span></a></li>
+</ul>
 {% endblock content %}

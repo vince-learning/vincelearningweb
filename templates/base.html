@@ -11,6 +11,7 @@
 
     <!-- Include the CSS -->
     <!-- CSS -->
+    {% load static %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="//d3js.org/d3.v3.min.js"></script>
@@ -24,14 +25,15 @@
         <!-- body -->
         <div id="core" class="row">
             <div class="col-2" id="sidebar">
-                <ul id="menu">
-                    <li{% if active_tab == 'home' %} class="active" {% endif %}><i class="fas fa-chart-line"></i><a
-                            href="{% url 'home' %}"><span>Home</span></a></li>
-                        <li{% if active_tab == 'cours' %} class="active" {% endif %}><i class="fas fa-chart-line"></i><a
-                                href="{% url 'cours' %}"><span>Cours</span></a></li>
-                            <li{% if active_tab == 'projets' %} class="active" {% endif %}><i
-                                    class="fas fa-chart-line"></i><a href="{% url 'projets' %}"><span>Projets</span></a>
-                                </li>
+                <ul id="barmenu">
+                    <li{% if active_tab == 'home' %} class="active" {% endif %}><i class="fas fa-chart-line"></i>
+                        <a href="{% url 'home' %}"><span>Home</span></a></li>
+                    <li{% if active_tab == 'cours' %} class="active" {% endif %}><i class="fas fa-chart-line"></i>
+                        <a href="{% url 'cours' %}"><span>Cours</span></a></li>
+                    <li{% if active_tab == 'projets' %} class="active" {% endif %}><i class="fas fa-chart-line"></i>
+                        <a href="{% url 'projets' %}"><span>Projets</span></li></a>
+                    <li{% if active_tab == 'notebooks' %} class="active" {% endif %}><i class="fas fa-chart-line"></i>
+                        <a href="{% url 'notebooks' %}"><span>Notebook</span></li></a>
                 </ul>
             </div>
             <div class="row col-10" id="content">{% block content %}{% endblock %}</div>
@@ -45,13 +47,18 @@
         padding: 0px 15px;
     }
 
-    /* body { background-color: whitesmoke; } */
-
-    #menu {
+    #barmenu {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background-color: #c8c8c8;
+        background-color: #5C7FAC;
+        height: 100%;
+    }
+
+    #listmenu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
         height: 100%;
     }
 
@@ -62,25 +69,21 @@
         text-decoration: none;
     }
 
-    #body {
-        background-color: white;
-    }
-
     .active {
         background-color: beige;
     }
 
     li a:hover:not(.active) {
-        background-color: #535353;
-        color: white;
+        background-color: #5A5A5A;
+        color: #FFFFFF;
         text-decoration: none;
     }
 
     #core {
+        background: url('/static/images/logo.png');
         border-top: 2px solid;
         border-bottom: 2px solid;
         min-height: 600px;
-        background-color: whitesmoke;
     }
 </style>
 
